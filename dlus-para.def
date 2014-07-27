@@ -1,0 +1,32 @@
+\ProvidesFile{dlus-para.def}
+
+%%1.5倍行距
+\renewcommand{\baselinestretch}{1.5}
+
+%%段间距设置为0
+\setlength{\parskip}{0pt}
+
+%%调整公式与正文断落之间的间距
+\def\dlus@eq@margin{.2\baselineskip}
+\g@addto@macro\normalsize{%
+  \setlength\abovedisplayskip{\dlus@eq@margin}
+  \setlength\belowdisplayskip{\dlus@eq@margin}
+  \setlength\abovedisplayshortskip{\dlus@eq@margin}
+  \setlength\belowdisplayshortskip{\dlus@eq@margin}
+}
+
+\newcommand{\setmathskip}[1]{
+	\def\dlus@eq@margin{#1}
+}
+
+%%设置公式与正文之间的间距
+\setmathskip{.25\baselineskip}
+
+\RequirePackage{enumitem}
+\setlist{
+	labelindent*=1em,
+	leftmargin=*,
+	itemsep=0pt,
+	parsep=0pt,
+	topsep=0pt
+}

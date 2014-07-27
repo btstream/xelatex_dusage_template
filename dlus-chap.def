@@ -1,0 +1,59 @@
+%%
+%%中文常用的章节样式定义
+%%
+\ProvidesFile{dlus-chap.def}
+
+
+%%章节样式
+%chapter样式
+\def\dlus@chapter@befpar{-4ex}
+\def\dlus@chapter@afterpar{23pt}
+\def\dlus@chapter@format{\zihao{3} \bfseries \centering}
+
+%重定义\@chapter，去掉lot和lof中的间隔
+\def\@chapter[#1]#2{%
+  \ifnum \c@secnumdepth >\m@ne
+    \if@mainmatter
+      \refstepcounter{chapter}%
+      \typeout{\CTEXthechapter}%
+      \addcontentsline{toc}{chapter}
+        {\protect\numberline{\CTEXthechapter\hspace{0.3em}}#1}%
+    \else
+      \addcontentsline{toc}{chapter}{#1}%
+    \fi
+  \else
+    \addcontentsline{toc}{chapter}{#1}%
+  \fi
+  \chaptermark{#1}%
+  
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+  \@afterheading
+  \fi
+ }
+
+
+%%设置章节格式
+\CTEXsetup[
+	number={\arabic{chapter}},
+	format={\dlus@chapter@format},
+	nameformat={},
+	titleformat={},
+	beforeskip={\dlus@chapter@befpar},
+	afterskip={\dlus@chapter@afterpar}
+]{chapter}
+
+\def\dlus@subsubsection@indent{2em}
+\CTEXsetup[
+	name={（,）},
+	number={\chinese{subsubsection}},
+	format={\dlus@subsubsection@format},
+	nameformat={},
+	titleformat={},
+	beforeskip={\dlus@subsubsection@befpar},
+	afterskip={\dlus@subsubsection@afterpar},
+	indent={\dlus@subsubsection@indent}
+]{subsubsection}
+

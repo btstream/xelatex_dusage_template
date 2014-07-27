@@ -1,0 +1,63 @@
+\ProvidesFile{dlus-env.def}
+
+%%定义摘要环境，将摘要放入toc中
+\newcommand{\dlus@abstractname}[1]{\def\dlus@abstractname{#1}}
+\dlus@abstractname{摘要}
+\newenvironment{abstract}{
+	\cleardoublepage
+	\thispagestyle{plain}
+	\chapter*{\dlus@abstractname}
+	\addcontentsline{toc}{chapter}{\dlus@abstractname}
+	\markboth{\dlus@headerstyle 摘要}{}
+}{
+	\clearpage
+	\thispagestyle{empty}
+}
+
+%%英文摘要
+\newenvironment{enabs}{
+	\cleardoublepage
+	\thispagestyle{plain}
+	\phantomsection
+	\chapter*{Abstract}
+	\addcontentsline{toc}{chapter}{Abstract}
+	\markboth{\dlus@headerstyle Abstract}{righthead}
+}{
+	\clearpage
+	\thispagestyle{empty}
+}
+
+%%重定义bibliography命令，放入toc中
+\let\dlus@orig@bibliography\bibliography
+\renewcommand{\bibliography}[1]{
+	\cleardoublepage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{\bibname}
+	\dlus@orig@bibliography{#1}
+}
+
+%%致谢
+\newenvironment{thanksto}{
+	\cleardoublepage
+	\phantomsection
+	\chapter*{致谢}
+	\addcontentsline{toc}{chapter}{致谢}
+	\markboth{\dlus@headerstyle 致谢}{}
+}{}
+
+\newenvironment{resume}{
+	\cleardoublepage
+	\phantomsection
+	\chapter*{作者简历及研究成果}
+	\addcontentsline{toc}{chapter}{作者简历及研究成果}
+	\markboth{\dlus@headerstyle 作者简历及研究成果}{}
+}{}
+
+\renewcommand{\frontmatter}{
+	\pagenumbering{Roman}
+}
+
+\renewcommand{\mainmatter}{
+	\cleardoublepage
+	\pagenumbering{arabic}
+}

@@ -1,0 +1,62 @@
+\ProvidesFile{dlus-cover.def}
+
+\ifdlusart
+	\ifindcover
+		\renewcommand{\maketitle}{
+			\thispagestyle{empty}
+			\vspace*{20ex}
+			\begin{center}
+					\zihao{1}
+					\bfseries
+					\@title
+			\end{center}
+
+			\vfill
+			\begin{center}
+				\@author
+
+				\@date
+			\end{center}
+			\vspace*{20ex}
+		}
+	\else
+		\renewcommand{\maketitle}{
+			\begin{center}
+			{\zihao{3}
+			\bfseries
+			\@title
+			}
+
+			\@author
+
+			\@date
+			\end{center}
+			\vspace*{2ex}
+		}
+	\fi
+\fi
+
+\ifdlusbook
+	\renewcommand{\maketitle}{
+		\thispagestyle{empty}
+		\vspace*{20ex}
+		\begin{center}
+			\zihao{1}
+			\bfseries
+			\@title
+		\end{center}
+
+		\vfill
+		\begin{center}
+			{\slshape
+			\@author
+			}
+
+			\@date
+		\end{center}
+		\vspace*{20ex}
+		\clearpage
+		\thispagestyle{empty}
+		\cleardoublepage
+	}
+\fi

@@ -1,0 +1,131 @@
+\ProvidesFile{dlus-tocloft.def}
+
+\CTEXoptions[
+	listfigurename={图目录},
+	listtablename={表目录},
+]
+
+%%目录、表目录和页目录样式
+\RequirePackage[titles]{tocloft}
+\renewcommand{\cftdot}{.} % 修改连线的点形状
+\renewcommand{\cftsetpnumwidth}{4em}
+
+%目录样式
+\ifdlusbook
+	\renewcommand{\cftchapnumwidth}{4em}
+	\renewcommand{\cftchapdotsep}{1} % 加入这一命令后，章后面会出现一行点号
+\fi
+
+\renewcommand{\cftsecdotsep}{0}
+\renewcommand{\cftsubsecdotsep}{0}
+
+\ifdlusart
+	\renewcommand{\cftsubsubsecdotsep}{0}
+\fi
+
+\ifdlusbook
+	\setlength{\cftbeforechapskip}{0pt}
+\fi
+
+\newcommand{\dlusSetloftnumwidth}[1]{
+	\def\dlus@loftnumwidth{#1}
+}
+
+\dlusSetloftnumwidth{3.5em}
+%表目录
+\renewcommand{\cfttabnumwidth}{\dlus@loftnumwidth}
+\renewcommand{\cfttabdotsep}{0}
+\renewcommand{\cfttabpresnum}{表}
+
+\renewcommand{\cftfignumwidth}{\dlus@loftnumwidth}
+\renewcommand{\cftfigdotsep}{0}
+\renewcommand{\cftfigpresnum}{图}
+
+%%将目录、图表目录加入到目录中
+\ifdlusbook
+	\renewcommand{\tableofcontents}{
+		\cleardoublepage
+		\thispagestyle{plain}
+		\chapter*{\contentsname}
+		\addcontentsline{toc}{chapter}{\contentsname}
+		\markboth{\dlus@headerstyle \contentsname}{}
+		\@starttoc{toc}
+		\clearpage
+		\thispagestyle{empty}
+	}
+
+	\renewcommand{\listoftables}{
+		\cleardoublepage
+		\thispagestyle{plain}
+		\chapter*{\listtablename}
+		\addcontentsline{toc}{chapter}{\listtablename}
+		\markboth{\dlus@headerstyle \listtablename}{}
+		\@starttoc{lot}
+		\clearpage
+		\thispagestyle{empty}
+	}
+
+
+	\renewcommand{\listoffigures}{
+		\cleardoublepage
+		\thispagestyle{plain}
+		\chapter*{\listfigurename}
+		\addcontentsline{toc}{chapter}{\listfigurename}
+		\markboth{\dlus@headerstyle \listfigurename}{}
+		\@starttoc{lof}
+		\clearpage
+		\thispagestyle{empty}
+		\cleardoublepage
+	}
+\fi
+
+\ifdlusart
+	\ifindcover
+		\renewcommand{\tableofcontents}{
+			\clearpage
+			\begin{center}
+			\section*{\contentsname}
+			\end{center}
+
+			\@starttoc{toc}
+			\clearpage
+		}
+
+		\renewcommand{\listoffigures}{
+			\clearpage
+			\begin{center}
+			\section*{\listfigurename}
+			\end{center}
+
+			\@starttoc{lof}
+			\clearpage
+		}
+
+		\renewcommand{\listoftables}{
+			\clearpage
+			\begin{center}
+			\section*{\listtablename}
+			\end{center}
+
+			\@starttoc{lot}
+			\clearpage
+		}
+	\fi
+	
+\fi
+
+%hyperref设置
+\RequirePackage[svgnames]{xcolor}
+
+\newcommand{\setlinkcolor}[1]{
+	\def\dlus@hyperrefcolor{#1}
+	\hypersetup{
+		bookmarksnumbered,
+		linkcolor=\dlus@hyperrefcolor,
+		citecolor=\dlus@hyperrefcolor,
+		linktoc=page
+	}
+}
+
+\setlinkcolor{Brown}
+

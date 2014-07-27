@@ -1,0 +1,25 @@
+\ProvidesFile{dlus-caption.def}
+
+\RequirePackage{caption}
+
+\ifnum \dlus@fontsize=12
+	\def\dlus@caption@ftsz{\zihao{5}}
+\fi
+
+
+\ifnum \dlus@fontsize=10
+	\def\dlus@caption@ftsz{\zihao{6}}
+\fi
+
+
+\ifnum \dlus@fontsize=105
+	\def\dlus@caption@ftsz{\zihao{-5}}
+\fi
+
+
+\ifnum \dlus@fontsize=11
+	\def\dlus@caption@ftsz{\zihao{-5}}
+\fi
+
+\DeclareCaptionFont{dlusFtSize}{\dlus@caption@ftsz}
+\captionsetup{font=dlusFtSize}

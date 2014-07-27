@@ -1,0 +1,76 @@
+\ProvidesFile{dlus-page.def}
+
+%%页面布局，a4页面的默认页边距
+\RequirePackage{geometry}
+\geometry{left=3.17cm,top=2.54cm,bottom=2.54cm,right=3.17cm,headheight=15pt}
+
+%%页眉页脚
+\RequirePackage{fancyhdr}
+
+%%重新定义title
+\let\dlus@orig@title\title
+\renewcommand{\title}[1]{
+	\dlus@orig@title{#1}
+	\def\dlus@title{#1}
+}
+
+%%定义页眉页脚的格式
+\def\dlus@headerstyle{\parindent\z@ \zihao{5}}
+
+%%定义页眉的左、中、右消息
+\def\dlus@headerinfo@L{}
+\def\dlus@headerinfo@C{}
+\def\dlus@headerinfo@CO{}
+\def\dlus@headerinfo@CE{}
+\def\dlus@headerinfo@R{}
+
+
+\def\headerinfo[#1]#2{
+	%\def\dlus@headerinfo@#1{#2}
+	\expandafter \def \csname dlus@headerinfo@#1\endcsname{\dlus@headerstyle #2}
+}
+
+\def\dlus@hf@style{
+	\fancyhf{}
+    
+    %%普通文章的页眉页脚
+    \ifdlusart
+    	\headerinfo[C]{\dlus@title}
+    	\fancyhead[L]{\dlus@headerinfo@L}
+    	\fancyhead[C]{\dlus@headerinfo@C}
+    	\fancyhead[R]{\dlus@headerinfo@R}
+    \fi
+
+    %%书本的页眉页脚
+    \ifdlusbook
+    		\headerinfo[CO]{\leftmark}
+    		\headerinfo[CE]{\dlus@title}
+    		\fancyhead[CO]{\dlus@headerinfo@CO}
+    		\fancyhead[CE]{\dlus@headerinfo@CE}
+	    	\fancyhead[R]{\dlus@headerinfo@R}
+    \fi
+
+    \renewcommand{\headrulewidth}{0.4pt} 
+    \fancyfoot[C]{\dlus@headerstyle \thepage}
+}
+
+%%重定义plain格式，用于\chapter的首页
+\fancypagestyle{plain}{% 
+    \dlus@hf@style
+}
+
+%%一般页面设置
+\pagestyle{fancy}
+\dlus@hf@style
+
+\fancyheadoffset[L]{8pt}
+\fancyheadoffset[R]{-8pt}
+\fancyfootoffset[L]{8pt}
+\fancyfootoffset[R]{-8pt}
+
+%%页眉显示章节名称时使用的格式
+\ifdlusbook
+	\renewcommand{\chaptermark}[1]{
+		\markboth{第\thechapter{}章\ #1}{} 
+	}
+\fi
