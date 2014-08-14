@@ -9,14 +9,14 @@
 %%调整公式与正文断落之间的间距
 \def\dlus@eq@margin{.2\baselineskip}
 \g@addto@macro\normalsize{%
-  \setlength\abovedisplayskip{\dlus@eq@margin}
-  \setlength\belowdisplayskip{\dlus@eq@margin}
-  \setlength\abovedisplayshortskip{\dlus@eq@margin}
-  \setlength\belowdisplayshortskip{\dlus@eq@margin}
+  \abovedisplayskip \dlus@eq@margin
+  \belowdisplayskip \dlus@eq@margin
+  \abovedisplayshortskip \dlus@eq@margin
+  \belowdisplayshortskip \dlus@eq@margin
 }
 
 \newcommand{\setmathskip}[1]{
-	\def\dlus@eq@margin{#1}
+	\def\dlus@eq@margin{#1 plus 5pt minus 5pt}
 }
 
 %%设置公式与正文之间的间距

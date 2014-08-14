@@ -1,7 +1,6 @@
 \ProvidesFile{dlus-bibstyle.def}
 
-\RequirePackage[numbers,sort&compress]{natbib} 
-%\RequirePackage{hypernat}
+\RequirePackage[numbers,sort&compress]{natbib}
 
 \renewcommand{\bibfont}{\zihao{5}}
 \renewcommand{\bibsep}{0pt}

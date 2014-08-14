@@ -5,7 +5,6 @@
 \dlus@abstractname{摘要}
 \newenvironment{abstract}{
 	\cleardoublepage
-	\thispagestyle{plain}
 	\chapter*{\dlus@abstractname}
 	\addcontentsline{toc}{chapter}{\dlus@abstractname}
 	\markboth{\dlus@headerstyle 摘要}{}
@@ -14,10 +13,15 @@
 	\thispagestyle{empty}
 }
 
+%%定义关键字
+\newcommand{\keywords}[1]{
+	\vspace*{.5\baselineskip}
+	{\songti \bfseries 关键字:} #1
+}
+
 %%英文摘要
 \newenvironment{enabs}{
 	\cleardoublepage
-	\thispagestyle{plain}
 	\phantomsection
 	\chapter*{Abstract}
 	\addcontentsline{toc}{chapter}{Abstract}
@@ -25,6 +29,12 @@
 }{
 	\clearpage
 	\thispagestyle{empty}
+}
+
+%%英文关键字
+\newcommand{\keywordsen}[1]{
+	\vspace*{.5\baselineskip}
+	{\bfseries Keywords:} #1
 }
 
 %%重定义bibliography命令，放入toc中

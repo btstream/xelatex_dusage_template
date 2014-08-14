@@ -2,7 +2,7 @@
 
 %%页面布局，a4页面的默认页边距
 \RequirePackage{geometry}
-\geometry{left=3.17cm,top=2.54cm,bottom=2.54cm,right=3.17cm,headheight=15pt}
+\geometry{left=3.17cm,top=2.54cm,bottom=2.54cm,right=3.17cm,headheight=15pt,a4paper}
 
 %%页眉页脚
 \RequirePackage{fancyhdr}
@@ -50,23 +50,26 @@
 	    	\fancyhead[R]{\dlus@headerinfo@R}
     \fi
 
-    \renewcommand{\headrulewidth}{0.4pt} 
+    \renewcommand{\headrulewidth}{0.5pt} 
     \fancyfoot[C]{\dlus@headerstyle \thepage}
 }
 
-%%重定义plain格式，用于\chapter的首页
-\fancypagestyle{plain}{% 
+\fancypagestyle{dluschap}{
+    \dlus@hf@style
+}
+
+\fancypagestyle{dluspage}{
     \dlus@hf@style
 }
 
 %%一般页面设置
-\pagestyle{fancy}
+\pagestyle{dluspage}
 \dlus@hf@style
 
-\fancyheadoffset[L]{8pt}
-\fancyheadoffset[R]{-8pt}
-\fancyfootoffset[L]{8pt}
-\fancyfootoffset[R]{-8pt}
+% \fancyheadoffset[L]{8pt}
+% \fancyheadoffset[R]{-8pt}
+% \fancyfootoffset[L]{8pt}
+% \fancyfootoffset[R]{-8pt}
 
 %%页眉显示章节名称时使用的格式
 \ifdlusbook
