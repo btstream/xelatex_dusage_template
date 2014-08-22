@@ -14,7 +14,6 @@
 \input{dlus-csstyle.def}
 \input{dlus-para.def}
 \input{dlus-caption.def}
-\input{dlus-bibstyle.def}
 \input{dlus-tocloft.def}
 \input{dlus-fontstyle.def}
 \input{dlus-cover.def}

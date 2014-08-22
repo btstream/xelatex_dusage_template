@@ -40,22 +40,6 @@
 	\def\dlus@fontsize{12}
 }
 
-\DeclareOption{bibplain}{
-	\def\dlus@bibstyle{0}
-}
-
-\DeclareOption{bibchns}{
-	\def\dlus@bibstyle{1}
-}
-
-\DeclareOption{bibalpha}{
-	\def\dlus@bibstyle{2}
-}
-
-\DeclareOption{bibnone}{
-	\def\dlus@bibstyle{3}
-}
-
 \newif\ifindcover
 \indcoverfalse
 
@@ -79,5 +63,5 @@
 
 \PassOptionsToClass{hyperref}{\dlus@classtoload}
 
-\ExecuteOptions{bibnone,cs4size,mathspec}
+\ExecuteOptions{cs4size,mathspec}
 \ProcessOptions

@@ -24,8 +24,8 @@
 \DeclareCaptionFont{dlusFtSize}{\dlus@caption@ftsz}
 \captionsetup{font=dlusFtSize,skip=5pt}
 
-\setlength{\textfloatsep}{.5\baselineskip}
-\setlength{\floatsep}{.5\baselineskip}
-\setlength{\intextsep}{.5\baselineskip}
+% \setlength{\textfloatsep}{.5\baselineskip plus 5pt minus 5pt}
+% \setlength{\floatsep}{.5\baselineskip plus 5pt minus 5pt}
+% \setlength{\intextsep}{.5\baselineskip plus 5pt minus 5pt}
 
 \RequirePackage{float}

@@ -2,7 +2,7 @@
 
 \CTEXoptions[
 	listfigurename={图目录},
-	listtablename={表目录},
+	listtablename={表目录}
 ]
 
 %%目录、表目录和页目录样式
