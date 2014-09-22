@@ -66,6 +66,23 @@
 \pagestyle{dluspage}
 \dlus@hf@style
 
+% \@ifundefined{dlus@title}{
+%     \headinfo[C]{}
+%     \headinfo[R]{}
+%     \headinfo[L]{}
+%     \headinfo[CO]{}
+%     \headinfo[CE]{}
+% }{}
+
+\ifx\dlus@title\undefined
+    \headerinfo[C]{}
+    \headerinfo[R]{}
+    \headerinfo[L]{}
+    \headerinfo[CO]{}
+    \headerinfo[CE]{}
+    \renewcommand{\headrulewidth}{0pt} 
+\fi
+
 % \fancyheadoffset[L]{8pt}
 % \fancyheadoffset[R]{-8pt}
 % \fancyfootoffset[L]{8pt}

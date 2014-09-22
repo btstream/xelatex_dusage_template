@@ -65,3 +65,5 @@
 
 \ExecuteOptions{cs4size,mathspec}
 \ProcessOptions
+
+\RequirePackage{etex}

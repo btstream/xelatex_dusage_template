@@ -1,7 +1,7 @@
 \ProvidesFile{dlus-fontstyle.def}
 
 
-
+%% 如果采用了mathastext选项
 \ifmathastext
 	\RequirePackage[defaultmathsizes,italic]{mathastext}
 
@@ -19,7 +19,7 @@
 \fi
 
 
-
+%% 设置英文字体的命令
 \newcommand{\setengfont}[1]{
 	% \setmainfont{#1}
 	% \setmathsfont(Digits,Latin,Greek){#1}

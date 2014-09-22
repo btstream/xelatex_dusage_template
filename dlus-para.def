@@ -16,11 +16,11 @@
 }
 
 \newcommand{\setmathskip}[1]{
-	\def\dlus@eq@margin{#1 plus 5pt minus 5pt}
+	\def\dlus@eq@margin{#1 plus .25\baselineskip minus .25\baselineskip}
 }
 
 %%设置公式与正文之间的间距
-\setmathskip{.25\baselineskip}
+\setmathskip{.5\baselineskip}
 
 \RequirePackage{enumitem}
 \setlist{

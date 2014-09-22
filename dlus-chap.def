@@ -61,7 +61,11 @@
 	afterskip={\dlus@chapter@afterpar}
 ]{chapter}
 
-\def\dlus@subsubsection@indent{2em}
+%%定义subsubsection的内容
+\def\dlus@subsubsection@indent{\parindent}
+\def\dlus@subsubsection@befpar{0pt}
+\def\dlus@subsubsection@afterpar{0pt\par}
+\def\dlus@subsubsection@format{\dlus@subsubsection@fs \bfseries \songti}
 \CTEXsetup[
 	name={（,）},
 	number={\chinese{subsubsection}},
