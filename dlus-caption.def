@@ -25,9 +25,3 @@
 \DeclareCaptionFont{dlusFtSize}{\dlus@caption@ftsz}
 \captionsetup{font=dlusFtSize,skip=5pt}
 \captionsetup[sub]{font=dlusFtSize,skip=3pt,justification=centering}
-
-\setlength{\textfloatsep}{.5\baselineskip plus 5pt minus 5pt}
-\setlength{\floatsep}{.5\baselineskip plus 5pt minus 5pt}
-\setlength{\intextsep}{.5\baselineskip plus 5pt minus 5pt}
-
-\RequirePackage{float}

@@ -20,7 +20,7 @@
 }
 
 %%设置公式与正文之间的间距
-\setmathskip{.5\baselineskip}
+\setmathskip{.25\baselineskip}
 
 \RequirePackage{enumitem}
 \setlist{
@@ -30,3 +30,12 @@
 	parsep=0pt,
 	topsep=0pt
 }
+
+\RequirePackage{float}
+
+%%设置图表距离正文之间的距离
+\setlength{\textfloatsep}{.5\baselineskip plus .25\baselineskip minus .25\baselineskip}
+\setlength{\floatsep}{.5\baselineskip plus .25\baselineskip minus .25\baselineskip}
+\setlength{\intextsep}{.5\baselineskip plus .25\baselineskip minus .25\baselineskip}
+
+

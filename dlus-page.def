@@ -12,6 +12,7 @@
 \renewcommand{\title}[1]{
 	\dlus@orig@title{#1}
 	\def\dlus@title{#1}
+    \dlus@hf@style %%用户自定义了title，重新设置页眉格式
 }
 
 %%定义页眉页脚的格式
@@ -19,15 +20,23 @@
 
 %%定义页眉的左、中、右消息
 \def\dlus@headerinfo@L{}
+\def\dlus@headerinfo@LO{}
+\def\dlus@headerinfo@LE{}
+
 \def\dlus@headerinfo@C{}
 \def\dlus@headerinfo@CO{}
 \def\dlus@headerinfo@CE{}
+
 \def\dlus@headerinfo@R{}
+\def\dlus@headerinfo@RO{}
+\def\dlus@headerinfo@RE{}
 
 
 \def\headerinfo[#1]#2{
 	%\def\dlus@headerinfo@#1{#2}
-	\expandafter \def \csname dlus@headerinfo@#1\endcsname{\dlus@headerstyle #2}
+    \@for\dlus@hf@p:=#1\do{
+	   \expandafter \def \csname dlus@headerinfo@\dlus@hf@p\endcsname{\dlus@headerstyle #2}
+    }
 }
 
 \def\dlus@hf@style{
@@ -47,7 +56,10 @@
     		\headerinfo[CE]{\dlus@title}
     		\fancyhead[CO]{\dlus@headerinfo@CO}
     		\fancyhead[CE]{\dlus@headerinfo@CE}
-	    	\fancyhead[R]{\dlus@headerinfo@R}
+            \fancyhead[RO]{\dlus@headerinfo@RO}
+            \fancyhead[RE]{\dlus@headerinfo@RE}
+            \fancyhead[LO]{\dlus@headerinfo@LO}
+            \fancyhead[LE]{\dlus@headerinfo@LE}
     \fi
 
     \renewcommand{\headrulewidth}{0.5pt} 
@@ -66,8 +78,9 @@
 \pagestyle{dluspage}
 \dlus@hf@style
 
-%%保证没有标题的情况下可以编译通过
-\title{}
+%%默认无标题情况下不采用页眉
+\headerinfo[L,LE,LO,C,CE,CO,R,RE,RO]{}
+\renewcommand{\headrulewidth}{0pt}
 
 %%页眉显示章节名称时使用的格式
 \ifdlusbook
