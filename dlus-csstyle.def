@@ -4,35 +4,35 @@
 \ProvidesFile{dlus-csstyle.def}
 
 \ifnum \dlus@fontsize=12
-	\def\dlus@section@fs{\zihao{-4}}
-	\def\dlus@subsection@fs{\zihao{-4}}
-	\def\dlus@subsubsection@fs{\zihao{-4}}
-	\def\dlus@paragraph@fs{\zihao{-4}}
-	\def\dlus@subparagraph@fs{\zihao{-4}}	
+        \def\dlus@section@fs{\zihao{-4}}
+        \def\dlus@subsection@fs{\zihao{-4}}
+        \def\dlus@subsubsection@fs{\zihao{-4}}
+        \def\dlus@paragraph@fs{\zihao{-4}}
+        \def\dlus@subparagraph@fs{\zihao{-4}}   
 \fi
 
 \ifnum \dlus@fontsize=10
-	\def\dlus@section@fs{\zihao{5}}
-	\def\dlus@subsection@fs{\zihao{5}}
-	\def\dlus@subsubsection@fs{\zihao{5}}
-	\def\dlus@paragraph@fs{\zihao{5}}
-	\def\dlus@subparagraph@fs{\zihao{5}}	
+        \def\dlus@section@fs{\zihao{5}}
+        \def\dlus@subsection@fs{\zihao{5}}
+        \def\dlus@subsubsection@fs{\zihao{5}}
+        \def\dlus@paragraph@fs{\zihao{5}}
+        \def\dlus@subparagraph@fs{\zihao{5}}    
 \fi
 
 \ifnum \dlus@fontsize=105
-	\def\dlus@section@fs{\zihao{5}}
-	\def\dlus@subsection@fs{\zihao{5}}
-	\def\dlus@subsubsection@fs{\zihao{5}}
-	\def\dlus@paragraph@fs{\zihao{5}}
-	\def\dlus@subparagraph@fs{\zihao{5}}
+        \def\dlus@section@fs{\zihao{5}}
+        \def\dlus@subsection@fs{\zihao{5}}
+        \def\dlus@subsubsection@fs{\zihao{5}}
+        \def\dlus@paragraph@fs{\zihao{5}}
+        \def\dlus@subparagraph@fs{\zihao{5}}
 \fi
 
 \ifnum \dlus@fontsize=11
-	\def\dlus@section@fs{\zihao{-4}}
-	\def\dlus@subsection@fs{\zihao{-4}}
-	\def\dlus@subsubsection@fs{\zihao{-4}}
-	\def\dlus@paragraph@fs{\zihao{-4}}
-	\def\dlus@subparagraph@fs{\zihao{-4}}	
+        \def\dlus@section@fs{\zihao{-4}}
+        \def\dlus@subsection@fs{\zihao{-4}}
+        \def\dlus@subsubsection@fs{\zihao{-4}}
+        \def\dlus@paragraph@fs{\zihao{-4}}
+        \def\dlus@subparagraph@fs{\zihao{-4}}   
 \fi
 
 \setcounter{secnumdepth}{3}
@@ -71,46 +71,88 @@
 %%章节标题标号深度
 \setcounter{secnumdepth}{3}
 
+\@ifpackagelater{ctex}{2015/05/14}{
+        \ctexset{
+                section={
+                        format={\dlus@section@format},
+                        nameformat={},
+                        titleformat={},
+                        beforeskip={\dlus@section@befpar},
+                        afterskip={\dlus@section@afterpar}
+                },
+                subsection={
+                        format={\dlus@subsection@format},
+                        nameformat={},
+                        titleformat={},
+                        beforeskip={\dlus@subsection@befpar},
+                        afterskip={\dlus@subsection@afterpar}
+                },
+                subsubsection={
+                        format={\dlus@subsubsection@format},
+                        nameformat={},
+                        titleformat={},
+                        beforeskip={\dlus@subsubsection@befpar},
+                        afterskip={\dlus@subsubsection@afterpar},
+                        indent={\dlus@subsubsection@indent}
+                },
+                paragraph={
+                        format={\dlus@paragraph@format},
+                        nameformat={},
+                        titleformat={},
+                        beforeskip={\dlus@paragraph@befpar},
+                        afterskip={\dlus@paragraph@afterpar},
+                        indent={\dlus@paragraph@indent}
+                },
+                subparagraph={
+                        format={\dlus@subparagraph@format},
+                        nameformat={},
+                        titleformat={},
+                        beforeskip={\dlus@subparagraph@befpar},
+                        afterskip={\dlus@subparagraph@afterpar},
+                        indent={\dlus@subparagraph@indent}
+                }
+        }       
+}{
+        \CTEXsetup[
+                format={\dlus@section@format},
+                nameformat={},
+                titleformat={},
+                beforeskip={\dlus@section@befpar},
+                afterskip={\dlus@section@afterpar}
+        ]{section}
 
-\CTEXsetup[
-	format={\dlus@section@format},
-	nameformat={},
-	titleformat={},
-	beforeskip={\dlus@section@befpar},
-	afterskip={\dlus@section@afterpar}
-]{section}
+        \CTEXsetup[
+                format={\dlus@subsection@format},
+                nameformat={},
+                titleformat={},
+                beforeskip={\dlus@subsection@befpar},
+                afterskip={\dlus@subsection@afterpar}
+        ]{subsection}
 
-\CTEXsetup[
-	format={\dlus@subsection@format},
-	nameformat={},
-	titleformat={},
-	beforeskip={\dlus@subsection@befpar},
-	afterskip={\dlus@subsection@afterpar}
-]{subsection}
+        \CTEXsetup[
+                format={\dlus@subsubsection@format},
+                nameformat={},
+                titleformat={},
+                beforeskip={\dlus@subsubsection@befpar},
+                afterskip={\dlus@subsubsection@afterpar},
+                indent={\dlus@subsubsection@indent}
+        ]{subsubsection}
 
-\CTEXsetup[
-	format={\dlus@subsubsection@format},
-	nameformat={},
-	titleformat={},
-	beforeskip={\dlus@subsubsection@befpar},
-	afterskip={\dlus@subsubsection@afterpar},
-	indent={\dlus@subsubsection@indent}
-]{subsubsection}
+        \CTEXsetup[
+                format={\dlus@paragraph@format},
+                nameformat={},
+                titleformat={},
+                beforeskip={\dlus@paragraph@befpar},
+                afterskip={\dlus@paragraph@afterpar},
+                indent={\dlus@paragraph@indent}
+        ]{paragraph}
 
-\CTEXsetup[
-	format={\dlus@paragraph@format},
-	nameformat={},
-	titleformat={},
-	beforeskip={\dlus@paragraph@befpar},
-	afterskip={\dlus@paragraph@afterpar},
-	indent={\dlus@paragraph@indent}
-]{paragraph}
-
-\CTEXsetup[
-	format={\dlus@subparagraph@format},
-	nameformat={},
-	titleformat={},
-	beforeskip={\dlus@subparagraph@befpar},
-	afterskip={\dlus@subparagraph@afterpar},
-	indent={\dlus@subparagraph@indent}
-]{subparagraph}
+        \CTEXsetup[
+                format={\dlus@subparagraph@format},
+                nameformat={},
+                titleformat={},
+                beforeskip={\dlus@subparagraph@befpar},
+                afterskip={\dlus@subparagraph@afterpar},
+                indent={\dlus@subparagraph@indent}
+        ]{subparagraph}
+}

@@ -4,17 +4,10 @@
 
 
 \DeclareOption*{
-	\PassOptionsToClass{\CurrentOption}{dlusbook}
+        \PassOptionsToClass{\CurrentOption}{dlusbook}
 }
 
 \ProcessOptions
 \LoadClass[cs4size]{dlusbook}
 \input{cover-def.cfg}
 \input{statement-def.cfg}
-
-
-
-
-
-
-

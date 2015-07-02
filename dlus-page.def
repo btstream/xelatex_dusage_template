@@ -10,9 +10,9 @@
 %%重新定义title
 \let\dlus@orig@title\title
 \renewcommand{\title}[1]{
-	\dlus@orig@title{#1}
-	\def\dlus@title{#1}
-    \dlus@hf@style %%用户自定义了title，重新设置页眉格式
+        \dlus@orig@title{#1}
+        \def\dlus@title{#1}
+        \dlus@hf@style %%用户自定义了title，重新设置页眉格式
 }
 
 %%定义页眉页脚的格式
@@ -33,45 +33,45 @@
 
 
 \def\headerinfo[#1]#2{
-	%\def\dlus@headerinfo@#1{#2}
-    \@for\dlus@hf@p:=#1\do{
-	   \expandafter \def \csname dlus@headerinfo@\dlus@hf@p\endcsname{\dlus@headerstyle #2}
-    }
+        %\def\dlus@headerinfo@#1{#2}
+        \@for\dlus@hf@p:=#1\do{
+               \expandafter \def \csname dlus@headerinfo@\dlus@hf@p\endcsname{\dlus@headerstyle #2}
+        }
 }
 
 \def\dlus@hf@style{
-	\fancyhf{}
+        \fancyhf{}
     
     %%普通文章的页眉页脚
-    \ifdlusart
-    	\headerinfo[C]{\dlus@title}
-    	\fancyhead[L]{\dlus@headerinfo@L}
-    	\fancyhead[C]{\dlus@headerinfo@C}
-    	\fancyhead[R]{\dlus@headerinfo@R}
-    \fi
+            \ifdlusart
+                \headerinfo[C]{\dlus@title}
+                \fancyhead[L]{\dlus@headerinfo@L}
+                \fancyhead[C]{\dlus@headerinfo@C}
+                \fancyhead[R]{\dlus@headerinfo@R}
+            \fi
 
     %%书本的页眉页脚
-    \ifdlusbook
-    		\headerinfo[CO]{\leftmark}
-    		\headerinfo[CE]{\dlus@title}
-    		\fancyhead[CO]{\dlus@headerinfo@CO}
-    		\fancyhead[CE]{\dlus@headerinfo@CE}
-            \fancyhead[RO]{\dlus@headerinfo@RO}
-            \fancyhead[RE]{\dlus@headerinfo@RE}
-            \fancyhead[LO]{\dlus@headerinfo@LO}
-            \fancyhead[LE]{\dlus@headerinfo@LE}
-    \fi
+        \ifdlusbook
+                \headerinfo[CO]{\leftmark}
+                \headerinfo[CE]{\dlus@title}
+                \fancyhead[CO]{\dlus@headerinfo@CO}
+                \fancyhead[CE]{\dlus@headerinfo@CE}
+                \fancyhead[RO]{\dlus@headerinfo@RO}
+                \fancyhead[RE]{\dlus@headerinfo@RE}
+                \fancyhead[LO]{\dlus@headerinfo@LO}
+                \fancyhead[LE]{\dlus@headerinfo@LE}
+        \fi
 
-    \renewcommand{\headrulewidth}{0.5pt} 
-    \fancyfoot[C]{\dlus@headerstyle \thepage}
+        \renewcommand{\headrulewidth}{0.5pt} 
+        \fancyfoot[C]{\dlus@headerstyle \thepage}
 }
 
 \fancypagestyle{dluschap}{
-    \dlus@hf@style
+        \dlus@hf@style
 }
 
 \fancypagestyle{dluspage}{
-    \dlus@hf@style
+        \dlus@hf@style
 }
 
 %%一般页面设置
@@ -84,7 +84,7 @@
 
 %%页眉显示章节名称时使用的格式
 \ifdlusbook
-	\renewcommand{\chaptermark}[1]{
-		\markboth{第\thechapter{}章\ #1}{} 
-	}
+        \renewcommand{\chaptermark}[1]{
+                \markboth{第\thechapter{}章\ #1}{} 
+        }
 \fi

@@ -9,14 +9,14 @@
 %%调整公式与正文断落之间的间距
 \def\dlus@eq@margin{.2\baselineskip}
 \g@addto@macro\normalsize{%
-  \abovedisplayskip \dlus@eq@margin
-  \belowdisplayskip \dlus@eq@margin
-  \abovedisplayshortskip \dlus@eq@margin
-  \belowdisplayshortskip \dlus@eq@margin
+        \abovedisplayskip \dlus@eq@margin
+        \belowdisplayskip \dlus@eq@margin
+        \abovedisplayshortskip \dlus@eq@margin
+        \belowdisplayshortskip \dlus@eq@margin
 }
 
 \newcommand{\setmathskip}[1]{
-	\def\dlus@eq@margin{#1 plus .25\baselineskip minus .25\baselineskip}
+        \def\dlus@eq@margin{#1 plus .25\baselineskip minus .25\baselineskip}
 }
 
 %%设置公式与正文之间的间距
@@ -24,11 +24,11 @@
 
 \RequirePackage{enumitem}
 \setlist{
-	labelindent*=1em,
-	leftmargin=*,
-	itemsep=0pt,
-	parsep=0pt,
-	topsep=0pt
+        labelindent*=1em,
+        leftmargin=*,
+        itemsep=0pt,
+        parsep=0pt,
+        topsep=0pt
 }
 
 \RequirePackage{float}

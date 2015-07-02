@@ -4,61 +4,61 @@
 \newif\ifdlusbook
 
 \newcommand{\dlus@setclass@art}{
-	\dlusarttrue
-	\dlusbookfalse
-	\def\dlus@classtoload{ctexart}
+        \dlusarttrue
+        \dlusbookfalse
+        \def\dlus@classtoload{ctexart}
 }
 
 \newcommand{\dlus@setclass@book}{
-	\dlusartfalse
-	\dlusbooktrue
-	\def\dlus@classtoload{ctexbook}
+        \dlusartfalse
+        \dlusbooktrue
+        \def\dlus@classtoload{ctexbook}
 }
 
 \DeclareOption{cs4size}{
-	\PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
-	\def\dlus@fontsize{12}
+        \PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
+        \def\dlus@fontsize{12}
 }
 
 \DeclareOption{c5size}{
-	\PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
-	\def\dlus@fontsize{105}
+        \PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
+        \def\dlus@fontsize{105}
 }
 
 \DeclareOption{10pt}{
-	\PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
-	\def\dlus@fontsize{10}
+        \PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
+        \def\dlus@fontsize{10}
 }
 
 \DeclareOption{11pt}{
-	\PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
-	\def\dlus@fontsize{11}
+        \PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
+        \def\dlus@fontsize{11}
 }
 
 \DeclareOption{12pt}{
-	\PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
-	\def\dlus@fontsize{12}
+        \PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
+        \def\dlus@fontsize{12}
 }
 
 \newif\ifindcover
 \indcoverfalse
 
 \DeclareOption{indcover}{
-	\indcovertrue
+        \indcovertrue
 }
 
 \newif\ifmathastext
 
 \DeclareOption{mathastext}{
-	\mathastexttrue
+        \mathastexttrue
 }
 
 \DeclareOption{mathspec}{
-	\mathastextfalse
+        \mathastextfalse
 }
 
 \DeclareOption*{
-	\PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
+        \PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
 }
 
 \PassOptionsToClass{hyperref}{\dlus@classtoload}

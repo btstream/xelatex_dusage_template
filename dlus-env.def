@@ -4,70 +4,70 @@
 \newcommand{\dlus@abstractname}[1]{\def\dlus@abstractname{#1}}
 \dlus@abstractname{摘要}
 \newenvironment{abstract}{
-	\cleardoublepage
-	\chapter*{\dlus@abstractname}
-	\addcontentsline{toc}{chapter}{\dlus@abstractname}
-	\markboth{\dlus@headerstyle 摘要}{}
+        \cleardoublepage
+        \chapter*{\dlus@abstractname}
+        \addcontentsline{toc}{chapter}{\dlus@abstractname}
+        \markboth{\dlus@headerstyle 摘要}{}
 }{
-	\clearpage
-	\thispagestyle{empty}
+        \clearpage
+        \thispagestyle{empty}
 }
 
 %%定义关键字
 \newcommand{\keywords}[1]{
-	\vspace*{.5\baselineskip}
-	{\songti \bfseries 关键字:} #1
+        \vspace*{.5\baselineskip}
+        {\songti \bfseries 关键字:} #1
 }
 
 %%英文摘要
 \newenvironment{enabs}{
-	\cleardoublepage
-	\phantomsection
-	\chapter*{Abstract}
-	\addcontentsline{toc}{chapter}{Abstract}
-	\markboth{\dlus@headerstyle Abstract}{righthead}
+        \cleardoublepage
+        \phantomsection
+        \chapter*{Abstract}
+        \addcontentsline{toc}{chapter}{Abstract}
+        \markboth{\dlus@headerstyle Abstract}{righthead}
 }{
-	\clearpage
-	\thispagestyle{empty}
+        \clearpage
+        \thispagestyle{empty}
 }
 
 %%英文关键字
 \newcommand{\keywordsen}[1]{
-	\vspace*{.5\baselineskip}
-	{\bfseries Keywords:} #1
+        \vspace*{.5\baselineskip}
+        {\bfseries Keywords:} #1
 }
 
 %%重定义bibliography命令，放入toc中
 \let\dlus@orig@bibliography\bibliography
 \renewcommand{\bibliography}[1]{
-	\cleardoublepage
-	\phantomsection
-	\addcontentsline{toc}{chapter}{\bibname}
-	\dlus@orig@bibliography{#1}
+        \cleardoublepage
+        \phantomsection
+        \addcontentsline{toc}{chapter}{\bibname}
+        \dlus@orig@bibliography{#1}
 }
 
 %%致谢
 \newenvironment{thanksto}{
-	\cleardoublepage
-	\phantomsection
-	\chapter*{致谢}
-	\addcontentsline{toc}{chapter}{致谢}
-	\markboth{\dlus@headerstyle 致谢}{}
+        \cleardoublepage
+        \phantomsection
+        \chapter*{致谢}
+        \addcontentsline{toc}{chapter}{致谢}
+        \markboth{\dlus@headerstyle 致谢}{}
 }{}
 
 \newenvironment{resume}{
-	\cleardoublepage
-	\phantomsection
-	\chapter*{作者简历及研究成果}
-	\addcontentsline{toc}{chapter}{作者简历及研究成果}
-	\markboth{\dlus@headerstyle 作者简历及研究成果}{}
+        \cleardoublepage
+        \phantomsection
+        \chapter*{作者简历及研究成果}
+        \addcontentsline{toc}{chapter}{作者简历及研究成果}
+        \markboth{\dlus@headerstyle 作者简历及研究成果}{}
 }{}
 
 \renewcommand{\frontmatter}{
-	\pagenumbering{Roman}
+        \pagenumbering{Roman}
 }
 
 \renewcommand{\mainmatter}{
-	\cleardoublepage
-	\pagenumbering{arabic}
+        \cleardoublepage
+        \pagenumbering{arabic}
 }

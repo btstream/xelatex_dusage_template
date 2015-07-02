@@ -12,68 +12,99 @@
 
 %重定义\@chapter，去掉lot和lof中的间隔
 \def\@chapter[#1]#2{%
-  \ifnum \c@secnumdepth >\m@ne
-    \if@mainmatter
-      \refstepcounter{chapter}%
-      \typeout{\CTEXthechapter}%
-      \addcontentsline{toc}{chapter}
-        {\protect\numberline{\CTEXthechapter\hspace{0.3em}}#1}%
-    \else
-      \addcontentsline{toc}{chapter}{#1}%
-    \fi
-  \else
-    \addcontentsline{toc}{chapter}{#1}%
-  \fi
-  \chaptermark{#1}%
-  
-  \if@twocolumn
-    \@topnewpage[\@makechapterhead{#2}]%
-  \else
-    \@makechapterhead{#2}%
-    \@afterheading
-  \fi
+        \ifnum \c@secnumdepth >\m@ne
+                \if@mainmatter
+                        \refstepcounter{chapter}%
+                        \typeout{\CTEXthechapter}%
+                        \addcontentsline{toc}{chapter}
+                                {\protect\numberline{\CTEXthechapter\hspace{0.3em}}#1}%
+                \else
+                        \addcontentsline{toc}{chapter}{#1}%
+                \fi
+        \else
+                \addcontentsline{toc}{chapter}{#1}%
+        \fi
+        \chaptermark{#1}%
+        
+        \if@twocolumn
+                \@topnewpage[\@makechapterhead{#2}]%
+        \else
+                \@makechapterhead{#2}%
+                \@afterheading
+        \fi
  }
 
 
 \let\stdchapter\chapter
 
 \renewcommand*\chapter{
-  \@ifstar{\starchapter}{\@dblarg\nostarchapter}}
+        \@ifstar{\starchapter}{\@dblarg\nostarchapter}}
 
 \newcommand*\starchapter[1]{
-  \stdchapter*{#1}
-  \thispagestyle{dluschap}
+        \stdchapter*{#1}
+        \thispagestyle{dluschap}
 }
 
 \def\nostarchapter[#1]#2{
-  \stdchapter[{#1}]{#2}
-  \thispagestyle{dluschap}
+        \stdchapter[{#1}]{#2}
+        \thispagestyle{dluschap}
 }
 
 
 %%设置章节格式
-\CTEXsetup[
-	number={\arabic{chapter}},
-	format={\dlus@chapter@format},
-	nameformat={},
-	titleformat={},
-	beforeskip={\dlus@chapter@befpar},
-	afterskip={\dlus@chapter@afterpar}
-]{chapter}
-
+\@ifpackagelater{ctex}{2015/05/14}
+{
+        \def\dlus@chapter@befpar{0pt}
+        \ctexset{
+                chapter = {
+                        number={\arabic{chapter}},
+                        format={\dlus@chapter@format},
+                        nameformat={},
+                        titleformat={},
+                        beforeskip={\dlus@chapter@befpar},
+                        afterskip={\dlus@chapter@afterpar}
+                }
+        }
+}
+{
+        \CTEXsetup[
+                number={\arabic{chapter}},
+                format={\dlus@chapter@format},
+                nameformat={},
+                titleformat={},
+                beforeskip={\dlus@chapter@befpar},
+                afterskip={\dlus@chapter@afterpar}
+        ]{chapter}
+}
 %%定义subsubsection的内容
 \def\dlus@subsubsection@indent{\parindent}
 \def\dlus@subsubsection@befpar{0pt}
 \def\dlus@subsubsection@afterpar{0pt\par}
 \def\dlus@subsubsection@format{\dlus@subsubsection@fs \bfseries \songti}
-\CTEXsetup[
-	name={（,）},
-	number={\chinese{subsubsection}},
-	format={\dlus@subsubsection@format},
-	nameformat={},
-	titleformat={},
-	beforeskip={\dlus@subsubsection@befpar},
-	afterskip={\dlus@subsubsection@afterpar},
-	indent={\dlus@subsubsection@indent}
-]{subsubsection}
+
+\@ifpackagelater{ctex}{2015/05/14}{
+        \ctexset{
+                subsubsection={
+                        name={（,）},
+                        number={\chinese{subsubsection}},
+                        format={\dlus@subsubsection@format},
+                        nameformat={},
+                        titleformat={},
+                        beforeskip={\dlus@subsubsection@befpar},
+                        afterskip={\dlus@subsubsection@afterpar},
+                        indent={\dlus@subsubsection@indent}
+                }
+        }
+}{
+ \CTEXsetup[
+        name={（,）},
+        number={\chinese{subsubsection}},
+        format={\dlus@subsubsection@format},
+        nameformat={},
+        titleformat={},
+        beforeskip={\dlus@subsubsection@befpar},
+        afterskip={\dlus@subsubsection@afterpar},
+        indent={\dlus@subsubsection@indent}
+        ]{subsubsection} 
+}
 

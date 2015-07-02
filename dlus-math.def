@@ -8,33 +8,33 @@
 \RequirePackage{amsthm}
 
 \ifdlusbook
-  \def\dlus@math@counter{chapter}
+        \def\dlus@math@counter{chapter}
 \fi
 
-\ifdlusart  
-  \def\dlus@math@counter{section}
+\ifdlusart
+        \def\dlus@math@counter{section}
 \fi
 
 %%各种数学环境定义
 \newtheoremstyle{dlus}% name
-  {0pt} % Space above
-  {0pt} % Space below
-  {} % Body font
-  {2em} % Indent amount
-  {\bfseries} % Theorem head font
-  {:} % Punctuation after theorem head
-  {.5em} % Space after theorem head
-  {} % Theorem head spec (can be left empty, meaning `normal')
+        {0pt} % Space above
+        {0pt} % Space below
+        {} % Body font
+        {2em} % Indent amount
+        {\bfseries} % Theorem head font
+        {:} % Punctuation after theorem head
+        {.5em} % Space after theorem head
+        {} % Theorem head spec (can be left empty, meaning `normal')
 \theoremstyle{dlus}
-  \newtheorem{algo}{算法~}[\dlus@math@counter]
-  \newtheorem{thm}{定理~}[\dlus@math@counter]
-  \newtheorem{lem}[thm]{引理~}
-  \newtheorem{prop}[thm]{命题~}
-  \newtheorem{cor}[thm]{推论~}
-  \newtheorem{defn}{定义~}[\dlus@math@counter]
-  \newtheorem{conj}{猜想~}[\dlus@math@counter]
-  \newtheorem{exmp}{例~}[\dlus@math@counter]
-  \newtheorem{rem}{注~}
-  \newtheorem{case}{情形~}
+        \newtheorem{algo}{算法~}[\dlus@math@counter]
+        \newtheorem{thm}{定理~}[\dlus@math@counter]
+        \newtheorem{lem}[thm]{引理~}
+        \newtheorem{prop}[thm]{命题~}
+        \newtheorem{cor}[thm]{推论~}
+        \newtheorem{defn}{定义~}[\dlus@math@counter]
+        \newtheorem{conj}{猜想~}[\dlus@math@counter]
+        \newtheorem{exmp}{例~}[\dlus@math@counter]
+        \newtheorem{rem}{注~}
+        \newtheorem{case}{情形~}
 
 \renewcommand{\proofname}{\bf 证明}

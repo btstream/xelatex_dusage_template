@@ -3,32 +3,32 @@
 
 %% 如果采用了mathastext选项
 \ifmathastext
-	\RequirePackage[defaultmathsizes,italic]{mathastext}
+        \RequirePackage[defaultmathsizes,italic]{mathastext}
 
-	\@for\@tempA:=C,E,F,G,I,J,K,S,T,U,V,W,X,Y\do{%
-		\MTsetmathskips{\@tempA}{0mu}{2mu}
-	}%
+        \@for\@tempA:=C,E,F,G,I,J,K,S,T,U,V,W,X,Y\do{%
+                \MTsetmathskips{\@tempA}{0mu}{2mu}
+        }%
 
-	\@for\@tempa:=f,i,j,k,n,v,w,x,y,z\do{
-		\MTsetmathskips{\@tempa}{0mu}{1.5mu}
-	}
+        \@for\@tempa:=f,i,j,k,n,v,w,x,y,z\do{
+                \MTsetmathskips{\@tempa}{0mu}{1.5mu}
+        }
 
-	\MTprimeskip{.5mu}
+        \MTprimeskip{.5mu}
 \else
-	\RequirePackage{mathspec}
+        \RequirePackage{mathspec}
 \fi
 
 
 %% 设置英文字体的命令
 \newcommand{\setengfont}[1]{
-	% \setmainfont{#1}
-	% \setmathsfont(Digits,Latin,Greek){#1}
-	\ifmathastext
-		\setmainfont{#1}
-		\Mathastext
-	\else
-		\setallmainfonts(Digits,Latin,Greek){#1}
-	\fi
+        % \setmainfont{#1}
+        % \setmathsfont(Digits,Latin,Greek){#1}
+        \ifmathastext
+                \setmainfont{#1}
+                \Mathastext
+        \else
+                \setallmainfonts(Digits,Latin,Greek){#1}
+        \fi
 }
 
 \setengfont{Times New Roman}
