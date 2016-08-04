@@ -1,9 +1,13 @@
 \ProvidesFile{dlus-tocloft.def}
 
-\CTEXoptions[
-        listfigurename={图目录},
-        listtablename={表目录}
-]
+% \CTEXoptions[
+%         listfigurename={图目录},
+%         listtablename={表目录}
+% ]
+\ctexset{
+    listfigurename={图目录},
+    listtablename={表目录}
+}
 
 %%目录、表目录和页目录样式
 \RequirePackage[titles]{tocloft}
@@ -108,7 +112,7 @@
                         \clearpage
                 }
         \fi
-        
+
 \fi
 
 %hyperref设置
@@ -125,4 +129,3 @@
 }
 
 \setlinkcolor{Brown}
-

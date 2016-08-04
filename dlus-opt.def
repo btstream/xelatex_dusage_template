@@ -16,12 +16,12 @@
 }
 
 \DeclareOption{cs4size}{
-        \PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
+        \PassOptionsToClass{zihao=-4}{\dlus@classtoload}
         \def\dlus@fontsize{12}
 }
 
 \DeclareOption{c5size}{
-        \PassOptionsToClass{\CurrentOption}{\dlus@classtoload}
+        \PassOptionsToClass{zihao=5}{\dlus@classtoload}
         \def\dlus@fontsize{105}
 }
 
