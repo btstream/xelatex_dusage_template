@@ -32,3 +32,4 @@
 }
 
 \setengfont{Times New Roman}
+\setCJKmainfont{SimSun}

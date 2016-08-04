@@ -16,7 +16,7 @@
 %%定义关键字
 \newcommand{\keywords}[1]{
         \vspace*{.5\baselineskip}
-        {\songti \bfseries 关键字:} #1
+        {\rmfamily \bfseries 关键字:} #1
 }
 
 %%英文摘要

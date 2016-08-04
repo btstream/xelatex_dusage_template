@@ -54,7 +54,7 @@
 %%设置章节格式
 \@ifpackagelater{ctex}{2015/05/14}
 {
-        \def\dlus@chapter@befpar{18pt}
+        \def\dlus@chapter@befpar{10pt}
         \ctexset{
                 chapter = {
                         number={\arabic{chapter}},
@@ -81,7 +81,7 @@
 \def\dlus@subsubsection@indent{\parindent}
 \def\dlus@subsubsection@befpar{0pt}
 \def\dlus@subsubsection@afterpar{0pt\par}
-\def\dlus@subsubsection@format{\dlus@subsubsection@fs \bfseries \songti}
+\def\dlus@subsubsection@format{\dlus@subsubsection@fs \bfseries \rmfamily}
 
 \@ifpackagelater{ctex}{2015/05/14}{
         \ctexset{
